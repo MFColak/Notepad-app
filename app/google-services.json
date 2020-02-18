@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "510427711339",
+    "firebase_url": "https://notepad-4d84f.firebaseio.com",
+    "project_id": "notepad-4d84f",
+    "storage_bucket": "notepad-4d84f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510427711339:android:42216884da3870c4f72e2e",
+        "android_client_info": {
+          "package_name": "com.notepad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510427711339-hcvqkv0v611h8m0n8666tu2195mgrv43.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.notepad",
+            "certificate_hash": "28e605fd0796a6113bc914368f366b4090dc7754"
+          }
+        },
+        {
+          "client_id": "510427711339-rl543e1925cc2iqc7hcvhiur02ecg49f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6P8aPfzPoBogJz2OMoISoRaYF392vKYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510427711339-rl543e1925cc2iqc7hcvhiur02ecg49f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

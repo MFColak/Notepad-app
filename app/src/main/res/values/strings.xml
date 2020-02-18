@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">notepad</string>
+    <string name="button">button</string>
+
+    <string name="ho_geldin">Hoşgeldin:)</string>
+    <string name="hesaba_girebilirsin">Hesaba girebilirsin</string>
+    <string name="hosgeldin">hosgeldin:)</string>
+    <string name="bir_hesaba_ihtiyac_m_var">Bir hesaba ihtiyacım var</string>
+    <string name="ho_geldinn">hoşgeldin:)</string>
+    <string name="bir_hesab_m_var">Bir hesabım var</string>
+    <string name="henuz_hesabim_yok">Henüz hesabım yok</string>
+    <string name="ho_geld_n">HOŞGELDİN:)</string>
+    <string name="kullan_c_ad">Kullanıcı adı</string>
+    <string name="kay_t_ol">Kayıt ol</string>
+
+    <string name="giris">Giriş</string>
+    <string name="email">Email</string>
+    <string name="ifre">Şifre</string>
+    <string name="giri_yap">Giriş yap</string>
+    <string name="todo">TODO</string>
+    <string name="yeni_not">Yeni not</string>
+    <string name="ba_l_k">Başlık</string>
+    <string name="son_kay_t">son kayıt</string>
+</resources>
