@@ -38,7 +38,7 @@ public class notepadActivity extends AppCompatActivity {
     private DatabaseReference notDb;
     private Menu mainMenu;
 
-    private String notID="";
+    private String notID;
 
     private boolean isExist;
 
@@ -51,12 +51,10 @@ public class notepadActivity extends AppCompatActivity {
         try {
             notID=getIntent().getStringExtra("notID");
 
-            if (!notID.isEmpty()){
-                mainMenu.getItem(0).setVisible(true);
+            if (!notID.trim().equals("")){
                 isExist = true;
 
             }else {
-                mainMenu.getItem(0).setVisible(false);
                 isExist=false;
             }
 
