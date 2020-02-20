@@ -1,12 +1,14 @@
 package com.notepad;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,15 +35,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        nNotlist =(RecyclerView) findViewById(R.id.main_not_list);
 
-        nNotlist =findViewById(R.id.main_not_list);
-
-        gridLayoutManager = new GridLayoutManager(this,3, GridLayoutManager.VERTICAL,false);
+        gridLayoutManager = new GridLayoutManager(this,2, GridLayoutManager.VERTICAL,false);
 
         nNotlist.setHasFixedSize(true);
         nNotlist.setLayoutManager(gridLayoutManager);
+        nNotlist.addItemDecoration(new GridSpacingItemDecoration(2,pxConvert(10),true));
 
-        setContentView(R.layout.activity_main);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -55,29 +58,44 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
+        Query query = fNotDatabase.orderByChild("zaman");
         FirebaseRecyclerAdapter<notePad,NoteView> firebaseRecyclerAdapter =new FirebaseRecyclerAdapter<notePad, NoteView>(
                 notePad.class,
                 R.layout.tekli_not_layout,
                 NoteView.class,
-                fNotDatabase
+                query
         ) {
             @Override
             protected void populateViewHolder(final NoteView noteView, notePad notePad, int position) {
 
-                String notId = getRef(position).getKey();
+                final String notId = getRef(position).getKey();
 
                 fNotDatabase.child(notId).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String title = dataSnapshot.child("Başlık").getValue().toString();
-                        String timestamp =dataSnapshot.child("zaman").getValue().toString();
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChild("baslik")&& dataSnapshot.hasChild("zaman")) {
+                            String title = dataSnapshot.child("baslik").getValue().toString();
+                            String timestamp = dataSnapshot.child("zaman").getValue().toString();
 
-                        noteView.setNotBaslik(title);
-                        noteView.setNotZaman(timestamp);
+                            noteView.setNotBaslik(title);
+                            //noteView.setNotZaman(timestamp);
+
+                            whatTimeIsIt timer= new whatTimeIsIt();
+                            noteView.setNotZaman(timer.whattime(Long.parseLong(timestamp),getApplicationContext()));
+
+                            noteView.noteCard.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(MainActivity.this, notepadActivity.class);
+                                    intent.putExtra("notID", notId);
+                                    startActivity(intent);
+                                }
+                            });
+                        }
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    public void onCancelled( DatabaseError databaseError) {
 
                     }
                 });
@@ -118,6 +136,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
         return true;
+    }
+
+    private int pxConvert(int a) {
+        Resources r = getResources();
+        return  Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,a,r.getDisplayMetrics()));
     }
 }
 

@@ -19,6 +19,8 @@
     <string name="giri_yap">Giriş yap</string>
     <string name="todo">TODO</string>
     <string name="yeni_not">Yeni not</string>
-    <string name="ba_l_k">Başlık</string>
+
     <string name="son_kay_t">son kayıt</string>
+    <string name="ba_l_k">Başlık</string>
+    <string name="kaydet">Kaydet</string>
 </resources>

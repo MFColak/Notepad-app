@@ -11,18 +11,13 @@
         android:id="@+id/barTop"
         android:layout_width="match_parent"
         android:layout_height="50dp">
-    <Button
-        android:id="@+id/menuBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/asdf" />
+
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:layout_toEndOf="@+id/menuBtn"
         android:src="@drawable/logo"
+        android:background="@android:color/holo_blue_dark"
         android:contentDescription="@string/todo" />
 
 

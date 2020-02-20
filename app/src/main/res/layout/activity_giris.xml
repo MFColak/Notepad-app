@@ -10,19 +10,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
-        <Button
-            android:id="@+id/menuBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/asdf" />
+
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/menuBtn"
-            android:layout_toEndOf="@+id/menuBtn"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/todo" />
+            android:background="@android:color/holo_blue_dark"
+
+            android:contentDescription="@string/todo"
+            android:src="@drawable/logo" />
 
     </RelativeLayout>
 
@@ -31,7 +27,7 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:src="@drawable/asdf"
+        android:src="@drawable/abc"
         android:contentDescription="@string/todo" />
 
 
