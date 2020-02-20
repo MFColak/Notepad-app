@@ -2,4 +2,5 @@
 Özel notlarınızı kaydedebileceğiniz şifreli bir not defteri uygulamasıdır..
 
 
-![Adsız5](https://user-images.githubusercontent.com/34657047/74713801-5e2fe780-523a-11ea-8cf2-dfb4b090966d.jpg)
+![ss](https://user-images.githubusercontent.com/34657047/74964498-95fa8300-5424-11ea-96f4-b986296aef49.jpg)
+
