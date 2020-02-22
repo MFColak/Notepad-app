@@ -46,8 +46,8 @@ public class startActivity extends AppCompatActivity {
     }
 
     private void girisyap() {
-            Intent logintent =new Intent(startActivity.this, girisActivity.class);
-            startActivity(logintent);
+            Intent asdas =new Intent(startActivity.this, girisActivity.class);
+            startActivity(asdas);
     }
 
     private void updateUI() {
